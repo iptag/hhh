@@ -14,4 +14,4 @@
 sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
 
 # Add passwall
-git clone https://github.com/kenzok8/small-package/trunk/luci-app-passwall package/luci-app-passwall
+svn co https://github.com/kenzok8/small-package/trunk/luci-app-passwall package/luci-app-passwall
