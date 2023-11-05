@@ -14,5 +14,5 @@
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+echo 'src-git helloworld https://github.com/fw876/helloworld/tree/main' >>feeds.conf.default
 echo 'src-git smpackage https://github.com/kenzok8/small-package' >>feeds.conf.default
