@@ -10,5 +10,12 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-# Modify default IP
-sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
+# Remove the default apps
+sed -i 's/luci-app-zerotier //g' target/linux/x86/Makefile
+sed -i 's/luci-app-unblockmusic //g' target/linux/x86/Makefile
+sed -i 's/luci-app-xlnetacc //g' target/linux/x86/Makefile
+sed -i 's/luci-app-ipsec-vpnd //g' target/linux/x86/Makefile
+sed -i 's/luci-app-adbyby-plus //g' target/linux/x86/Makefile
+
+# Add Passwall
+git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
