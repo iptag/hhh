@@ -16,6 +16,3 @@ sed -i 's/luci-app-unblockmusic //g' target/linux/x86/Makefile
 sed -i 's/luci-app-xlnetacc //g' target/linux/x86/Makefile
 sed -i 's/luci-app-ipsec-vpnd //g' target/linux/x86/Makefile
 sed -i 's/luci-app-adbyby-plus //g' target/linux/x86/Makefile
-
-# Add Passwall
-git clone https://github.com/xiaorouji/openwrt-passwall package/openwrt-passwall
