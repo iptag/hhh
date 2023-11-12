@@ -13,9 +13,6 @@
 # 修改openwrt登陆地址,把下面的192.168.2123.1修改成你想要的就可以了，其他的不要动
 sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
 
-# Add passwall
-#svn co https://github.com/kenzok8/small-package/tree/main/luci-app-passwall package/luci-app-passwall
-
 # Remove the default apps
 sed -i 's/luci-app-zerotier //g' target/linux/x86/Makefile
 sed -i 's/luci-app-unblockmusic //g' target/linux/x86/Makefile
