@@ -23,3 +23,4 @@ sed -i 's/luci-app-xlnetacc //g' target/linux/x86/Makefile
 sed -i 's/luci-app-ipsec-vpnd //g' target/linux/x86/Makefile
 sed -i 's/luci-app-adbyby-plus //g' target/linux/x86/Makefile
 sed -i 's/luci-app-ssr-plus //g' target/linux/x86/Makefile
+sed -i 's/luci-app-samba4 //g' target/linux/x86/Makefile
