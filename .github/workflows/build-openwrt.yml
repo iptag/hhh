@@ -106,7 +106,7 @@ jobs:
       run: |
         cd openwrt
         make defconfig
-        make download -j4
+        make download -j8
         # 删除无效文件（扩大范围）
         find dl -size -2048c -delete
 
