@@ -45,9 +45,6 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        # 初始清理
-        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
-        
         # 增加更彻底的清理
         echo "Initial disk space:"
         df -hT
