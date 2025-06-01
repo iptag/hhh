@@ -48,8 +48,6 @@ jobs:
         # 增加更彻底的清理
         echo "Initial disk space:"
         df -hT
-        sudo swapoff /swapfile
-        sudo rm -f /swapfile
         sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache "$AGENT_TOOLSDIRECTORY"
         echo "Disk space after major cleanup:"
         df -hT
