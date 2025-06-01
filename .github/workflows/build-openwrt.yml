@@ -42,7 +42,6 @@ jobs:
         echo "Initial disk space:"
         df -hT
         sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache "$AGENT_TOOLSDIRECTORY"
-        sudo docker image prune --all --force
         echo "Disk space after major cleanup:"
         df -hT
 
