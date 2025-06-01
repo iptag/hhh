@@ -185,7 +185,7 @@ jobs:
         files: ${{ env.FIRMWARE }}/*
 
     - name: Delete workflow runs
-      uses: yxnwh/delete-workflow-runs@main # 注意：这个 action 可能需要更新或者有更现代的替代品
+      uses: iptag/delete-workflow-runs@main # 注意：这个 action 可能需要更新或者有更现代的替代品
       with:
         retain_days: 1
         keep_minimum_runs: 3
