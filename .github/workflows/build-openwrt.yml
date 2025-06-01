@@ -53,8 +53,7 @@ jobs:
         df -hT
         sudo swapoff /swapfile
         sudo rm -f /swapfile
-        sudo rm -rf /opt/hostedtoolcache
-        sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+        sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache "$AGENT_TOOLSDIRECTORY"
         echo "Disk space after major cleanup:"
         df -hT
 
