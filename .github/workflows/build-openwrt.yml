@@ -36,12 +36,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    
-    strategy:
-      matrix:
-        # 某些运行器类型提供更大磁盘空间
-        runner: [ubuntu-22.04, ubuntu-latest-16core-64gb]  # 后者有64GB空间
-        
+
     steps:
     - name: Checkout
       uses: actions/checkout@v4 # 建议使用较新的 checkout 版本
