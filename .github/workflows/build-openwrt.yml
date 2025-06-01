@@ -107,18 +107,15 @@ jobs:
         cd openwrt
         make defconfig
         make download -j8
-        # 删除无效文件（扩大范围）
-        find dl -size -2048c -delete
+        find dl -size -1024c -exec ls -l {} \;
+        find dl -size -1024c -exec rm -f {} \;
 
     - name: Compile the firmware
       id: compile
       run: |
         cd openwrt
-        echo "Using TMPDIR: $TMPDIR"
-        # 分阶段编译减少内存占用
-        make -j$(nproc) tools/compile
-        make -j$(nproc) toolchain/compile
-        make -j$(($(nproc)/2)) || make -j1 V=s
+        echo -e "$(nproc) thread compile"
+        make -j$(nproc) || make -j1 || make -j1 V=s
         # 编译后立即清理
         rm -rf build_dir/*/tmp
 
