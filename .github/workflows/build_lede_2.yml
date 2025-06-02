@@ -1,10 +1,8 @@
 name: X86_64 OpenWrt
 
 on:
-  workflow_run:
-    workflows: ["Delete Old Workflows"]
-    types:
-      - completed
+  repository_dispatch:
+  workflow_dispatch:
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -47,8 +45,11 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        echo "Initial disk space:"
+        df -hT
+        
         docker rmi $(docker images -q)
-        sudo rm -rf /usr/share/dotnet /etc/apt/sources.list.d /usr/local/lib/android $AGENT_TOOLSDIRECTORY
+        sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache "$AGENT_TOOLSDIRECTORY"
         sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* || true
         sudo -E apt-get -y update
         sudo -E apt-get -y install ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
@@ -119,7 +120,7 @@ jobs:
         [ -e files ] && mv files $OPENWRT_PATH/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE $OPENWRT_PATH/.config
         cat $GITHUB_WORKSPACE/configs/drivers.config ${{ matrix.target.config_file }} >> $OPENWRT_PATH/.config
-        chmod +x $GITHUB_WORKSPACE/scripts/*.sh
+        # chmod +x $GITHUB_WORKSPACE/scripts/*.sh
         chmod +x $DIY_SCRIPT
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
